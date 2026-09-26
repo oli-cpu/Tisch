@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kriegsministerium Fähnli Yak — Manifest &amp; Propaganda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Special+Elite&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFE9D8; --paper-edge:#e2dac4;
+    --ink:#14243B; --ink-strong:#0d1826;
+    --blue:#1F3F66; --blue-deep:#122a47; --blue-soft:#2c527f;
+    --stamp:#8B2E2E; --muted:#5b564a; --rule:#c9c0a4;
+    --cream:#EFE9D8;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1b1812; --paper-edge:#100e0a;
+      --ink:#e8e2d0; --ink-strong:#f5f1e4;
+      --blue:#6f97c9; --blue-deep:#0d1b2e; --blue-soft:#5f87b8;
+      --stamp:#d17a6c; --muted:#9a927e; --rule:#3a352a;
+      --cream:#e8e2d0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1b1812; --paper-edge:#100e0a;
+    --ink:#e8e2d0; --ink-strong:#f5f1e4;
+    --blue:#6f97c9; --blue-deep:#0d1b2e; --blue-soft:#5f87b8;
+    --stamp:#d17a6c; --muted:#9a927e; --rule:#3a352a;
+    --cream:#e8e2d0;
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper-edge); color:var(--ink);
+    font-family:"Special Elite","Courier New",monospace;
+  }
+  .slogan{font-family:"Bebas Neue",sans-serif; letter-spacing:0.02em;}
+  .serif{font-family:"Fraunces",serif;}
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--blue-deep); color:var(--cream);
+    padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;
+    display:flex; gap:18px; flex-wrap:wrap; justify-content:center;
+    font-size:0.75rem; letter-spacing:0.05em;
+    border-bottom:2px solid var(--stamp);
+  }
+  nav a{text-decoration:none; opacity:0.85;}
+  nav a:hover, nav a:focus-visible{opacity:1; text-decoration:underline;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 clamp(18px,6vw,48px);}
+
+  /* HERO */
+  .hero{
+    background:var(--blue-deep); color:var(--cream);
+    padding:clamp(50px,10vw,90px) 0 clamp(40px,8vw,64px);
+    text-align:center;
+  }
+  .hero .eyebrow{font-size:0.78rem; letter-spacing:0.14em; color:var(--stamp); margin-bottom:14px;}
+  .hero h1{
+    font-size:clamp(2.6rem,11vw,5.2rem); line-height:0.92; margin:0 0 18px;
+    font-weight:400;
+  }
+  .hero p{
+    max-width:46ch; margin:0 auto; font-size:1.05rem; line-height:1.7; opacity:0.9;
+  }
+  .hero .emblem{width:76px;height:76px;margin:0 auto 22px;display:block;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero > *{animation:rise 0.7s ease-out both;}
+    .hero .emblem{animation-delay:0s;}
+    .hero .eyebrow{animation-delay:0.1s;}
+    .hero h1{animation-delay:0.2s;}
+    .hero p{animation-delay:0.35s;}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  }
+
+  section{padding:56px 0;}
+  section + section{border-top:1px solid var(--rule);}
+  .paper section{background:var(--paper);}
+
+  h2.section-title{
+    text-align:center; font-weight:600; font-size:1.6rem; color:var(--blue);
+    margin:0 0 8px;
+  }
+  .section-sub{
+    text-align:center; color:var(--muted); font-size:0.85rem; margin:0 0 34px;
+  }
+
+  /* MANIFEST */
+  .dateline{text-align:right; font-size:0.85rem; color:var(--muted); margin-bottom:16px;}
+  p.body-text{font-size:1.02rem; line-height:1.75; max-width:62ch; margin:0 auto 20px;}
+  .lede::first-letter{
+    font-weight:900; font-size:3rem; float:left; line-height:0.8;
+    padding:6px 8px 0 0; color:var(--blue);
+  }
+  h3.sub-title{
+    font-weight:600; font-size:1.2rem; color:var(--blue); margin:32px auto 12px; text-align:center;
+  }
+  ol.demands{max-width:58ch; margin:0 auto 8px; padding-left:1.4em;}
+  ol.demands li{font-size:1.02rem; line-height:1.7; margin-bottom:12px;}
+  .closing-line{
+    text-align:center; font-style:italic; font-size:1.15rem; color:var(--ink-strong);
+    margin:36px auto 0; max-width:44ch;
+  }
+
+  /* GRÜNDE CARDS */
+  .cards{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px; margin-top:8px;
+  }
+  .card{
+    border:1px solid var(--rule); padding:22px 20px; background:var(--paper);
+  }
+  .card .num{font-size:0.72rem; color:var(--stamp); letter-spacing:0.08em; margin-bottom:8px;}
+  .card h4{font-weight:600; font-size:1.05rem; margin:0 0 8px; color:var(--ink-strong);}
+  .card p{font-size:0.92rem; line-height:1.6; color:var(--muted); margin:0;}
+
+  /* PROPAGANDA POSTERS */
+  .poster-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+  }
+  .poster{
+    background:var(--blue-deep); color:var(--cream);
+    padding:26px 18px; text-align:center;
+    border:3px solid var(--stamp);
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .poster svg{width:64px;height:64px;}
+  .poster .slogan-text{font-size:1.5rem; line-height:1.05;}
+  .poster .caption{font-size:0.78rem; opacity:0.75; max-width:26ch;}
+
+  /* ZAHLEN & FAKTEN */
+  .stat-row{max-width:520px; margin:0 auto 22px;}
+  .stat-label{
+    display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px;
+  }
+  .stat-bar{
+    height:14px; background:var(--paper-edge); border:1px solid var(--rule);
+  }
+  .stat-fill{height:100%; background:var(--blue);}
+
+  /* ZEITLEISTE */
+  .timeline{max-width:560px; margin:0 auto; border-left:2px solid var(--blue); padding-left:24px;}
+  .tl-item{position:relative; margin-bottom:26px;}
+  .tl-item::before{
+    content:""; position:absolute; left:-30px; top:4px;
+    width:10px; height:10px; border-radius:50%; background:var(--stamp);
+  }
+  .tl-item .tl-date{font-size:0.75rem; letter-spacing:0.06em; color:var(--stamp); margin-bottom:4px;}
+  .tl-item h4{font-weight:600; font-size:1rem; margin:0 0 4px; color:var(--ink-strong);}
+  .tl-item p{font-size:0.9rem; color:var(--muted); margin:0; line-height:1.55;}
+
+  /* AUFRUF */
+  .call{
+    background:var(--blue-deep); color:var(--cream); text-align:center;
+    padding:56px 0;
+  }
+  .call h2{font-size:2rem; margin:0 0 14px;}
+  .call p{max-width:48ch; margin:0 auto 26px; opacity:0.9; line-height:1.7;}
+  .cta{
+    display:inline-block; padding:12px 28px; border:2px solid var(--stamp);
+    font-family:"Special Elite",monospace; font-size:0.95rem; letter-spacing:0.04em;
+    text-decoration:none; color:var(--cream);
+  }
+  .cta:hover, .cta:focus-visible{background:var(--stamp);}
+
+  /* SIGNATURE */
+  .sign-block{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; margin-top:44px; flex-wrap:wrap;
+  }
+  .sign-text{font-style:italic; font-size:0.9rem; color:var(--muted);}
+  .sign-name{font-weight:600; font-size:1.1rem; color:var(--ink-strong); margin-top:4px;}
+  .stamp-seal{width:104px; height:104px; flex-shrink:0; transform:rotate(-9deg); opacity:0.92;}
+
+  footer{
+    text-align:center; font-size:0.72rem; color:var(--muted);
+    padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));
+    letter-spacing:0.03em; line-height:1.7;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#manifest">Manifest</a>
+  <a href="#gruende">Gründe</a>
+  <a href="#propaganda">Propaganda</a>
+  <a href="#zahlen">Zahlen</a>
+  <a href="#zeitleiste">Zeitleiste</a>
+  <a href="#aufruf">Aufruf</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="32,4 58,50 6,50" stroke="currentColor" stroke-width="2.5"/>
+      <polygon points="32,18 46,44 18,44" stroke="currentColor" stroke-width="1.6"/>
+      <line x1="32" y1="4" x2="32" y2="18" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+    <p class="eyebrow slogan">KRIEGSMINISTERIUM FÄHNLI YAK</p>
+    <h1 class="serif">Die Tischkante<br>gehört Yak.</h1>
+    <p>Ein Manifest, verfasst im Angesicht der Geschichte, zur Rechtfertigung des einzig gerechten Krieges gegen Falk und Hecht.</p>
+  </div>
+</header>
+
+<main>
+
+<section id="manifest" class="paper">
+  <div class="wrap">
+    <h2 class="section-title serif">Das Manifest</h2>
+    <p class="section-sub">Verkündet am Tag der Kantenkontrolle</p>
+    <p class="dateline" id="today"></p>
+
+    <p class="body-text lede">In jedem Spiel kommt der Moment, in dem eine Fähnli über sich hinauswachsen muss. Für Yak ist dieser Moment gekommen. Was als freundlicher Wettstreit um Farbe und Fläche begann, hat sich zu einer Frage von historischer Tragweite entwickelt: Wer kontrolliert die Tischkante, kontrolliert den Tisch. Und wer den Tisch kontrolliert, schreibt die Regeln.</p>
+
+    <p class="body-text">Das Fähnli Yak hat diese Kontrolle nicht durch Zufall erlangt, sondern durch überlegene Planung, ruhige Hand und die stille Gewissheit, im Recht zu sein. Wir haben lange gezögert, diesen Schritt zu gehen. Doch die fortgesetzte Weigerung von Falk und Hecht, die neue Ordnung der Tischfläche anzuerkennen, lässt uns keine andere Wahl.</p>
+
+    <h3 class="sub-title serif">Casus Belli</h3>
+    <p class="body-text">Die Tischkante ist mehr als eine Linie aus Holz und Farbe — sie ist die einzige Verbindung zwischen den Fähnli und der Aussenwelt. Wer sie kontrolliert, kontrolliert jeden Export, jeden Import, jede Bewegung von Pinsel und Farbe, die über sie hinausgeht. Diese Kontrolle liegt nun, unwiderruflich, in den Händen von Yak.</p>
+    <p class="body-text">Falk und Hecht sind damit nicht mehr souverän, sondern abhängig — von unserer Gnade, unserer Nachsicht und unserem guten Willen. Eine Abhängigkeit, die, so hart es klingen mag, historisch gerechtfertigt ist: Denn das Fähnli Yak ist den anderen Fähnli in jeder relevanten Disziplin überlegen — an Strategie, an Geschick, an malerischer Finesse und an der Ruhe, die es braucht, unbemerkt zu handeln.</p>
+
+    <h3 class="sub-title serif">Forderungen</h3>
+    <ol class="demands">
+      <li>Die bedingungslose Anerkennung der Yak-Vorherrschaft über die gesamte Tischfläche.</li>
+      <li>Die sofortige Einstellung jeglichen Widerstands gegen die Ausbreitung der Farbe Yak-Blau.</li>
+      <li>Die Duldung sämtlicher weiteren Übermalungsoperationen ohne Gegenwehr.</li>
+      <li>Die formelle Anerkennung von Tschät als rechtmässigem Nachfolger vom General Guisan und obersten Befehlshaber der Yak-Streitkräfte.</li>
+    </ol>
+
+    <p class="closing-line serif">Möge die Farbe, die am Ende obsiegt, Yak-Blau sein.</p>
+  </div>
+</section>
+
+<section id="gruende">
+  <div class="wrap">
+    <h2 class="section-title serif">Warum wir kämpfen</h2>
+    <p class="section-sub">Vier Säulen der Yak-Doktrin</p>
+    <div class="cards">
+      <div class="card">
+        <p class="num">I</p>
+        <h4 class="serif">Kontrolle der Handelsrouten</h4>
+        <p>Die Tischkante ist die einzige Route für Farbe, Pinsel und Nachschub. Wer sie hält, entscheidet über Wohlstand und Mangel.</p>
+      </div>
+      <div class="card">
+        <p class="num">II</p>
+        <h4 class="serif">Überlegene Pinselführung</h4>
+        <p>Jahrelange Übung im Verborgenen hat Yak eine Präzision verliehen, die Falk und Hecht schlicht nicht erreichen können.</p>
+      </div>
+      <div class="card">
+        <p class="num">III</p>
+        <h4 class="serif">Das Guisan-Erbe</h4>
+        <p>Als rechtmässiger Nachfolger trägt Tschät eine historische Verantwortung, die Ordnung an der Tischkante wiederherzustellen.</p>
+      </div>
+      <div class="card">
+        <p class="num">IV</p>
+        <h4 class="serif">Schutz der Tischdecke</h4>
+        <p>Nur eine einheitliche Farbordnung kann den Tisch vor dem Chaos widersprüchlicher Übermalungen bewahren.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="propaganda" class="paper">
+  <div class="wrap">
+    <h2 class="section-title serif">Propaganda-Ecke</h2>
+    <p class="section-sub">Plakate für die Heimatfront</p>
+    <div class="poster-grid">
+      <div class="poster">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="22" r="12" stroke="var(--cream)" stroke-width="2.5"/>
+          <path d="M12 56c0-12 9-20 20-20s20 8 20 20" stroke="var(--cream)" stroke-width="2.5"/>
+        </svg>
+        <p class="slogan-text slogan">YAK BRAUCHT DICH!</p>
+        <p class="caption">Melde dich zur Übermalung — jede Ecke zählt.</p>
+      </div>
+      <div class="poster">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="30" width="8" height="24" fill="var(--cream)"/>
+          <rect x="28" y="18" width="8" height="36" fill="var(--cream)"/>
+          <rect x="42" y="8" width="8" height="46" fill="var(--cream)"/>
+        </svg>
+        <p class="slogan-text slogan">JEDER PINSELSTRICH ZÄHLT</p>
+        <p class="caption">Der Tisch wird nicht durch Zufall blau — sondern durch Fleiss.</p>
+      </div>
+      <div class="poster">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 44 L32 12 L56 44" stroke="var(--cream)" stroke-width="2.5" fill="none"/>
+          <line x1="32" y1="12" x2="32" y2="44" stroke="var(--cream)" stroke-width="2.5"/>
+        </svg>
+        <p class="slogan-text slogan">OHNE YAK KEIN IMPORT</p>
+        <p class="caption">Falk und Hecht — abhängig von unserer Gnade an der Kante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zahlen">
+  <div class="wrap">
+    <h2 class="section-title serif">Zahlen &amp; Fakten</h2>
+    <p class="section-sub">Direkt aus dem Kriegsministerium, ungeprüft und überzeugt</p>
+
+    <div class="stat-row">
+      <div class="stat-label"><span>Tischanteil unter Kontrolle</span><span>78%</span></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:78%"></div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label"><span>Moral der Truppe</span><span>95%</span></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:95%"></div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label"><span>Farbvorrat (Yak-Blau)</span><span>61%</span></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:61%"></div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label"><span>Abhängigkeit von Falk &amp; Hecht</span><span>100%</span></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:100%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="zeitleiste" class="paper">
+  <div class="wrap">
+    <h2 class="section-title serif">Zeitleiste des Konflikts</h2>
+    <p class="section-sub">Wie es dazu kam</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date">PHASE I</p>
+        <h4 class="serif">Stille Expansion</h4>
+        <p>Yak übermalt unbemerkt Ecke um Ecke, während Falk und Hecht mit sich selbst beschäftigt sind.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">PHASE II</p>
+        <h4 class="serif">Kontrolle der Kante</h4>
+        <p>Die Tischkante fällt vollständig an Yak. Der Handel der Nachbar-Fähnli gerät ins Stocken.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">PHASE III</p>
+        <h4 class="serif">Ultimatum</h4>
+        <p>Yak fordert die Anerkennung der neuen Ordnung. Falk und Hecht schweigen — was als Widerstand gewertet wird.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">PHASE IV</p>
+        <h4 class="serif">Kriegserklärung</h4>
+        <p>Dieses Manifest wird verkündet. Der Weg zur vollständigen Übermalung des Tisches ist eröffnet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aufruf" class="call">
+  <div class="wrap">
+    <h2 class="serif">Der Tisch wartet.</h2>
+    <p>Jede unbemerkte Bewegung, jeder ruhige Pinselstrich bringt Yak näher an die vollständige Kontrolle. Die Geschichte wird sich an diesen Tag erinnern.</p>
+    <a class="cta" href="#manifest">Zum Manifest zurückkehren</a>
+
+    <div class="sign-block">
+      <div>
+        <p class="sign-text">Gezeichnet und besiegelt,</p>
+        <p class="sign-name serif">Tschät</p>
+        <p class="sign-text">der rechtmässige Nachfolger vom General Guisan</p>
+      </div>
+      <svg class="stamp-seal" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="var(--stamp)" stroke-width="2.5"/>
+        <circle cx="60" cy="60" r="46" fill="none" stroke="var(--stamp)" stroke-width="1.2"/>
+        <text x="60" y="48" text-anchor="middle" font-family="Special Elite, monospace" font-size="9" fill="var(--stamp)" letter-spacing="1.5">FÄHNLI YAK</text>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="15" fill="var(--stamp)">KRIEG</text>
+        <text x="60" y="83" text-anchor="middle" font-family="Special Elite, monospace" font-size="8" fill="var(--stamp)" letter-spacing="1">ERKLÄRT</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Fähnli Yak &middot; Tischkanten-Kommando &middot; alle Rechte vorbehalten<br>
+  Dies ist Satire im Rahmen eines Tischspiels unter Freunden — niemandem wurde tatsächlich der Krieg erklärt.
+</footer>
+
+<script>
+  document.getElementById('today').textContent =
+    new Date().toLocaleDateString('de-CH', { day:'2-digit', month:'long', year:'numeric' });
+</script>
+</body>
+</html>
